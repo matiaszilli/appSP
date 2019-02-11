@@ -1,0 +1,38 @@
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card">
+        
+        <div class="card-body">
+          <h4 class="card-title">Ultimos datos medidos</h4>
+          <h6 class="card-subtitle">Medidos el: {{lastData.timestamp}}</h6>
+          <h5 class="text">Ph: {{lastData.ph}}</h5>
+          <h5 class="text">Temperatura: {{lastData.temperature}}</h5>
+          <h5 class="text">Orp: {{lastData.orp}}</h5>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Historico de valores</h4>
+          <canvas *ngIf="chartFinish" baseChart width="400" height="400"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [options]="lineChartOptions"
+                      [chartType]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)">
+          </canvas>
+
+          <div class="col-md-12 text-center" style="margin-top: 10px;height: 50%">
+            <!-- <button (click)="randomizeType()" style="display: inline-block">Toggle</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
